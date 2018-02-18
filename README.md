@@ -11,7 +11,7 @@ The `preconnect` can be pre-connected api server without having to wait for java
 
 ## Install
 
-```
+```bash
 npm install html-webpack-preconnect-plugin
 ```
 
@@ -49,6 +49,6 @@ The `dist/index.html` will contain:
 <head>
   ...
   <link rel="preconnect" href="http://api1.example.com">
-  <link rel="dns-prefetch" href="https://platform.seiue.com">
+  <link rel="dns-prefetch" href="https://api2.example.com">
 </head>
 ```
