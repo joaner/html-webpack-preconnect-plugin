@@ -1,16 +1,23 @@
 {
   "name": "html-webpack-preconnect-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Embed <link rel=\"preconnect\"> into HtmlWebpackPlugin pages",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "webpack",
+    "plugin",
+    "html-webpack-plugin",
+    "preconnect",
+    "dns-prefetch"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joaner/html-webpack-preconnect-plugin.git"
   },
-  "author": "joaner",
+  "author": "joaner (https://github.com/joaner)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/joaner/html-webpack-preconnect-plugin/issues"

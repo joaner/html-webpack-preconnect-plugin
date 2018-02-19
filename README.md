@@ -4,15 +4,24 @@ This extension plugin embeds `<link rel="preconnect">` tags into HTML files gene
 
 ## Introduction
 
-The `preconnect` can be pre-connected api server without having to wait for javascript loading and execute request, save a little user time.
+The `preconnect` can be pre-connected api server without having to wait for javascript loading and execute request, save a little time for users.
 
-- [https://www.w3.org/TR/resource-hints/#preconnect](https://www.w3.org/TR/resource-hints/#preconnect)
-- [https://caniuse.com/#feat=link-rel-preconnect](https://caniuse.com/#feat=link-rel-preconnect)
+### Document
+
+> The `preconnect` link relation type is used to indicate an origin that will be used to fetch required resources. Initiating an early connection, which includes the DNS lookup, TCP handshake, and optional TLS negotiation, allows the user agent to mask the high latency costs of establishing a connection.
+
+[https://www.w3.org/TR/resource-hints/#preconnect](https://www.w3.org/TR/resource-hints/#preconnect)
+
+### Browser compatibility
+
+Chrome, Firefox, Android have been supported, IE/Edge/Safari not yet supported.
+
+[https://caniuse.com/#feat=link-rel-preconnect](https://caniuse.com/#feat=link-rel-preconnect)
 
 ## Install
 
 ```bash
-npm install html-webpack-preconnect-plugin
+npm install html-webpack-preconnect-plugin --save-dev
 ```
 
 ## Usage
@@ -26,24 +35,31 @@ var HtmlWebpackPreconnectPlugin = require('html-webpack-preconnect-plugin');
 {
   ...
   plugins: [
-    // set the origin
-    new HtmlWebpackPreconnectPlugin({
-      origins: [
-        // preconnect
-        'http://api1.example.com',
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
 
-        // Customize the attributes of the link tag
-        {
-          rel: 'dns-prefetch',
-          href: 'http://api2.example.com',
-        }
-      ],
-    })
+      // set the preconnect origins
+      preconnect: [
+        'http://api1.example.com',
+        'http://api2.example.com',
+      ]
+    }),
+
+    // another HTML entry
+    new HtmlWebpackPlugin({
+      filename: 'index2.html',
+      preconnect: [
+        'http://api2.example.com',
+      ]
+    }),
+
+    // enabled preconnect plugin
+    new HtmlWebpackPreconnectPlugin(),
   ]
 }
 ```
 
-The `dist/index.html` will contain:
+Then the `dist/index.html` will contain:
 
 ```html
 <head>

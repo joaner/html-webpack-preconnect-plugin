@@ -1,16 +1,12 @@
 'use strict'
 var assert = require('assert')
 
+/**
+ * html webpack preconnect plugin
+ * @class
+ */
 function HtmlWebpackPreconnectPlugin(options) {
-
-  // load origins
-  if (options.origins instanceof Array) {
-    this.origins = options.origins
-  } else if (options.origins instanceof Object) {
-    this.origins = Object.values(options.origins)
-  } else {
-    assert.fail(new TypeError('origins need array'))
-  }
+  assert.equal(options, undefined, 'The ResourceHintWebpackPlugin does not accept any options')
 }
 
 HtmlWebpackPreconnectPlugin.prototype.apply = function (compiler) {
@@ -19,24 +15,22 @@ HtmlWebpackPreconnectPlugin.prototype.apply = function (compiler) {
   // Hook into the html-webpack-plugin processing
   compiler.plugin('compilation', function (compilation) {
     compilation.plugin('html-webpack-plugin-alter-asset-tags', function (htmlPluginData, callback) {
-      self.origins.forEach(function(origin) {
-        var attributes
 
-        if (origin instanceof Object) {
-          attributes = origin
-        } else {
-          attributes = {
-            rel: 'preconnect',
-            href: origin
-          }
-        }
+      var origins = htmlPluginData.plugin.options.preconnect;
 
-        attributes.href = attributes.href.replace(/['"]+/g, '')
+      assert.equal(origins instanceof Array, true, new TypeError('origins need array'))
+
+      origins.forEach(function(origin) {
+        // webpack config may contain quotos, remove that
+        var href = origin.replace(/['"]+/g, '')
 
         var tag = {
           tagName: 'link',
           selfClosingTag: false,
-          attributes: attributes
+          attributes: {
+            rel: 'preconnect',
+            href: href
+          }
         }
         htmlPluginData.head.push(tag)
       })
