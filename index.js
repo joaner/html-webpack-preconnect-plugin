@@ -29,7 +29,8 @@ HtmlWebpackPreconnectPlugin.prototype.apply = function (compiler) {
           selfClosingTag: false,
           attributes: {
             rel: 'preconnect',
-            href: href
+            href: href,
+            crossorigin: ''
           }
         }
         htmlPluginData.head.push(tag)
