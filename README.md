@@ -13,11 +13,12 @@ The `preconnect` can be pre-connected api server without having to wait for java
 > The `preconnect` link relation type is used to indicate an origin that will be used to fetch required resources. Initiating an early connection, which includes the DNS lookup, TCP handshake, and optional TLS negotiation, allows the user agent to mask the high latency costs of establishing a connection.
 
 [https://www.w3.org/TR/resource-hints/#preconnect](https://www.w3.org/TR/resource-hints/#preconnect)
+
 [blog: Eliminating Roundtrips with Preconnect](https://www.igvita.com/2015/08/17/eliminating-roundtrips-with-preconnect/)
 
 ### Browser compatibility
 
-Chrome/Firefox/Android have been supported, IE/Edge/Safari not yet supported.
+Chrome/Firefox/Android have been supported, IE/Edge/Safari not yet.
 
 [https://caniuse.com/#feat=link-rel-preconnect](https://caniuse.com/#feat=link-rel-preconnect)
 
