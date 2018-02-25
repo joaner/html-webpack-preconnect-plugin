@@ -13,6 +13,7 @@ The `preconnect` can be pre-connected api server without having to wait for java
 > The `preconnect` link relation type is used to indicate an origin that will be used to fetch required resources. Initiating an early connection, which includes the DNS lookup, TCP handshake, and optional TLS negotiation, allows the user agent to mask the high latency costs of establishing a connection.
 
 [https://www.w3.org/TR/resource-hints/#preconnect](https://www.w3.org/TR/resource-hints/#preconnect)
+[blog: Eliminating Roundtrips with Preconnect](https://www.igvita.com/2015/08/17/eliminating-roundtrips-with-preconnect/)
 
 ### Browser compatibility
 
@@ -42,7 +43,7 @@ var HtmlWebpackPreconnectPlugin = require('html-webpack-preconnect-plugin');
 
       // set the preconnect origins
       preconnect: [
-        'http://api1.example.com',
+        'https://api1.example.com',
         'http://api2.example.com',
       ]
     }),
@@ -66,8 +67,8 @@ Then the `dist/index.html` will contain:
 ```html
 <head>
   ...
-  <link rel="preconnect" href="http://api1.example.com">
-  <link rel="dns-prefetch" href="https://api2.example.com">
+  <link rel="preconnect" href="https://api1.example.com">
+  <link rel="preconnect" href="http://api2.example.com">
 </head>
 ```
 
