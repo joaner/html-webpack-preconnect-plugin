@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/joaner/html-webpack-preconnect-plugin/issues"
   },
-  "homepage": "https://github.com/joaner/html-webpack-preconnect-plugin#readme"
+  "homepage": "https://github.com/joaner/html-webpack-preconnect-plugin#readme",
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
 }
