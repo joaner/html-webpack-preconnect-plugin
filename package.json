@@ -1,6 +1,6 @@
 {
   "name": "html-webpack-preconnect-plugin",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Embed <link rel=\"preconnect\"> into HtmlWebpackPlugin pages",
   "main": "index.js",
   "scripts": {
@@ -27,5 +27,9 @@
     "html-webpack-plugin": "^3.2.0",
     "mocha": "^5.2.0",
     "webpack": "^3.12.0"
+  },
+  "peerDependencies": {
+    "webpack": "3.x",
+    "html-webpack-plugin": "^3.2.0"
   }
 }
