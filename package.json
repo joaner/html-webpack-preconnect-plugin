@@ -26,10 +26,10 @@
   "devDependencies": {
     "html-webpack-plugin": "^3.2.0",
     "mocha": "^5.2.0",
-    "webpack": "^3.12.0"
+    "webpack": "^4.29.6"
   },
   "peerDependencies": {
-    "webpack": "3.x",
-    "html-webpack-plugin": "^3.2.0"
+    "webpack": "3 - 4",
+    "html-webpack-plugin": "3 - 4"
   }
 }
