@@ -1,8 +1,8 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var HtmlWebpackPreconnectPlugin = require('../index')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+// const HtmlWebpackPreconnectPlugin = require('../index')
 
 module.exports = {
-  entry: './index.js',
+  entry: 'index.js',
   output: {
     path: __dirname + '/dist',
     filename: 'bundle.js'
@@ -18,6 +18,6 @@ module.exports = {
       ],
     }),
 
-    new HtmlWebpackPreconnectPlugin(),
+    // new HtmlWebpackPreconnectPlugin(),
   ]
 }
