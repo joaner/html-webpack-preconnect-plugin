@@ -18,6 +18,9 @@
     "url": "git+https://github.com/joaner/html-webpack-preconnect-plugin.git"
   },
   "author": "joaner (https://github.com/joaner)",
+  "contributors": [
+    "Michell Ocana (https://github.com/michellocana)"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/joaner/html-webpack-preconnect-plugin/issues"
