@@ -1,14 +1,19 @@
 const assert = require('assert')
 const path = require('path')
-const webpack = require('webpack')
 const MemoryFileSystem = require('memory-fs');
+
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+
 const HtmlWebpackPreconnectPlugin = require('../index')
 
-describe('preconnect', function() {
-  it('adds preconnect tags', function(done) {
+describe('preconnect - webpack 4', function() {
+  it('add preconnect tags', function(done) {
     const compiler = webpack({
       entry: path.join(__dirname, '../example/index.js'),
+      output: {
+        path: path.join(__dirname, 'dist')
+      },
       plugins: [
         new HtmlWebpackPlugin({
           preconnect: [
@@ -16,7 +21,6 @@ describe('preconnect', function() {
             'https://fonts.gstatic.com',
           ],
         }),
-
         new HtmlWebpackPreconnectPlugin(),
       ]
     }, function(err, result) {
@@ -36,4 +40,4 @@ describe('preconnect', function() {
     })
     compiler.outputFileSystem = new MemoryFileSystem()
   })
-});
+})

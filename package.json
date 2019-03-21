@@ -4,7 +4,7 @@
   "description": "Embed <link rel=\"preconnect\"> into HtmlWebpackPlugin pages",
   "main": "index.js",
   "scripts": {
-    "test": "npx mocha"
+    "test": "npx mocha \"./test/*.spec.js\""
   },
   "keywords": [
     "webpack",
@@ -26,7 +26,7 @@
   "devDependencies": {
     "html-webpack-plugin": "^3.2.0",
     "mocha": "^5.2.0",
-    "webpack": "^3.12.0"
+    "webpack": "^4.29.6"
   },
   "peerDependencies": {
     "webpack": "3.x",
