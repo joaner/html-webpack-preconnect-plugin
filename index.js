@@ -24,7 +24,7 @@ const addPreconnectLinks = function (htmlPluginData, callback) {
         crossorigin: ''
       }
     };
-    htmlPluginData.head.push(tag);
+    htmlPluginData.headTags.push(tag);
   });
   callback(null, htmlPluginData);
 }
@@ -34,7 +34,7 @@ HtmlWebpackPreconnectPlugin.prototype.apply = function (compiler) {
   if (compiler.hooks) {
     compiler.hooks.compilation.tap('htmlWebpackPreconnectPlugin', function(compilation) {
       // Hook into the html-webpack-plugin processing
-      compilation.hooks.htmlWebpackPluginAlterAssetTags.tapAsync('htmlWebpackPreconnectPlugin', addPreconnectLinks)
+      require("html-webpack-plugin").getHooks(compilation).alterAssetTagGroups.tapAsync('htmlWebpackPreconnectPlugin', addPreconnectLinks)
     })
 
   // Webpack 3
