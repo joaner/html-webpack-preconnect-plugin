@@ -1,3 +1,4 @@
 node_modules/
 example/package-lock.json
 test/dist/
+test/webpack-v3/package-lock.json
