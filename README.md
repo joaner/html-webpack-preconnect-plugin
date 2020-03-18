@@ -1,4 +1,5 @@
-![https://npmjs.com/package/html-webpack-preconnect-plugin](https://img.shields.io/npm/v/html-webpack-preconnect-plugin.svg)
+[![npm][npm]][npm-url]
+![npm](https://img.shields.io/npm/v/html-webpack-preconnect-plugin.svg)
 
 # Html Webpack Preconnect Plugin
 
