@@ -1,4 +1,3 @@
-[![npm][npm]][npm-url]
 ![npm](https://img.shields.io/npm/v/html-webpack-preconnect-plugin.svg)
 
 # Html Webpack Preconnect Plugin
