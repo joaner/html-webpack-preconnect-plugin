@@ -1,4 +1,4 @@
 node_modules/
-example/package-lock.json
-test/dist/
-test/webpack-v3/package-lock.json
+package-lock.json
+test/webpack-v3/dist/
+test/webpack-v4/dist/

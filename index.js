@@ -24,7 +24,12 @@ const addPreconnectLinks = function (htmlPluginData, callback) {
         crossorigin: ''
       }
     };
-    htmlPluginData.head.push(tag);
+
+    if (htmlPluginData.head) { // html-webpack-plugin v3
+      htmlPluginData.head.push(tag);
+    } else if (htmlPluginData.assetTags) { // html-webpack-plugin v4
+      htmlPluginData.assetTags.meta.push(tag)
+    }
   });
   callback(null, htmlPluginData);
 }
@@ -34,7 +39,19 @@ HtmlWebpackPreconnectPlugin.prototype.apply = function (compiler) {
   if (compiler.hooks) {
     compiler.hooks.compilation.tap('htmlWebpackPreconnectPlugin', function(compilation) {
       // Hook into the html-webpack-plugin processing
-      compilation.hooks.htmlWebpackPluginAlterAssetTags.tapAsync('htmlWebpackPreconnectPlugin', addPreconnectLinks)
+      var hook
+      if (typeof compilation.hooks.htmlWebpackPluginAlterAssetTags !== 'undefined') {
+        hook = compilation.hooks.htmlWebpackPluginAlterAssetTags
+      } else {
+        var HtmlWebpackPlugin = require('html-webpack-plugin')
+        hook = HtmlWebpackPlugin.getHooks(compilation).alterAssetTags
+      }
+
+      if (hook) {
+        hook.tapAsync('htmlWebpackPreconnectPlugin', addPreconnectLinks)
+      } else {
+        console.error('The html-webpack-preconect-plugin not work because it is not compatible with current html-webpack-plugin.')
+      }
     })
 
   // Webpack 3
