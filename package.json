@@ -1,10 +1,10 @@
 {
   "name": "html-webpack-preconnect-plugin",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Embed <link rel=\"preconnect\"> into HtmlWebpackPlugin pages",
   "main": "index.js",
   "scripts": {
-    "test": "npx mocha \"./test/*.spec.js\""
+    "test": "npx mocha \"./test/*/test.js\""
   },
   "keywords": [
     "webpack",
@@ -27,12 +27,12 @@
   },
   "homepage": "https://github.com/joaner/html-webpack-preconnect-plugin#readme",
   "devDependencies": {
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^4.0.4",
     "mocha": "^5.2.0",
     "webpack": "^4.39.3"
   },
   "peerDependencies": {
     "webpack": ">= 3.12.0",
-    "html-webpack-plugin": "^3.2.0"
+    "html-webpack-plugin": ">= 3.2.0"
   }
 }

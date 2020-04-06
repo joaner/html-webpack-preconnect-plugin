@@ -2,15 +2,15 @@ const assert = require('assert')
 const path = require('path')
 const MemoryFileSystem = require('memory-fs');
 
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('./node_modules/webpack')
+const HtmlWebpackPlugin = require('../../node_modules/html-webpack-plugin')
 
-const HtmlWebpackPreconnectPlugin = require('../index')
+const HtmlWebpackPreconnectPlugin = require('../../index')
 
 describe('preconnect - webpack 4', function() {
   it('add preconnect tags', function(done) {
     const compiler = webpack({
-      entry: path.join(__dirname, '../example/index.js'),
+      entry: path.join(__dirname, '../../example/index.js'),
       output: {
         path: path.join(__dirname, 'dist')
       },
@@ -26,9 +26,11 @@ describe('preconnect - webpack 4', function() {
     }, function(err, result) {
       if (err) {
         done(err)
+        return
       }
       if (result.compilation.errors && result.compilation.errors.length) {
         done(result.compilation.errors)
+        return
       }
 
       const html = result.compilation.assets['index.html'].source();
