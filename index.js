@@ -6,13 +6,20 @@ var assert = require('assert')
  * @class
  */
 function HtmlWebpackPreconnectPlugin(options) {
-  assert.equal(options, undefined, 'The ResourceHintWebpackPlugin does not accept any options')
+  assert.equal(options, undefined, 'The HtmlWebpackPreconnectPlugin does not accept any options')
 }
 
 const addPreconnectLinks = function (htmlPluginData, callback) {
-  var origins = htmlPluginData.plugin.options.preconnect;
-  assert.equal(origins instanceof Array, true, new TypeError('origins need array'));
-  origins.forEach(function (origin) {
+  var preconnectedOrigins = htmlPluginData.plugin.options.preconnect;
+
+  // we don't need to do nothing if the HtmlWebpackPlugin instance don't have the preconnect option
+  if (!preconnectedOrigins) {
+    return callback(null, htmlPluginData);
+  }
+
+  assert.equal(preconnectedOrigins instanceof Array, true, new TypeError('preconnect option needs an array'));
+
+  preconnectedOrigins.forEach(function (origin) {
     // webpack config may contain quotos, remove that
     var href = origin.replace(/['"]+/g, '');
     var tag = {
