@@ -1,6 +1,6 @@
 {
   "name": "html-webpack-preconnect-plugin",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Embed <link rel=\"preconnect\"> into HtmlWebpackPlugin pages",
   "main": "index.js",
   "scripts": {
